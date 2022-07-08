@@ -33,8 +33,7 @@ class _SurveyScreenState extends State<SurveyScreen> {
         builder: (context, Box box, widget) {
           final survey = box.get(HiveBoxes.surveyBox);
           return survey == null
-              ? 
-              BlocListener<SurveyCubitCubit, SurveyCubitState>(
+              ? BlocListener<SurveyCubitCubit, SurveyCubitState>(
                   listener: (context, state) {
                     if (state is SurveyErrorState) {
                       ScaffoldMessenger.of(context).showSnackBar(
@@ -52,23 +51,27 @@ class _SurveyScreenState extends State<SurveyScreen> {
                         );
                       } else if (state is FetchSurvey) {
                         surveyBox.put(HiveBoxes.surveyBox, state.survey);
-                        return Container(
-                          child:Text(state.survey!.id!, style: TextStyle(color: Colors.black),)
-                        );
+                        return Center(
+                            child: Text(
+                          state.survey!.id!,
+                          style: TextStyle(color: Colors.black),
+                        ));
                       } else if (state is SurveyErrorState) {
                         return SnackBar(
-                            content: Text(state.errorMessage!),
-                          );
-                        
+                          content: Text(state.errorMessage!),
+                        );
                       }
                       return Container();
                     },
                   ),
                 )
-              : Container();
+              : Center(
+                  child: Text(
+                  survey.id.toString(),
+                  style: TextStyle(color: Colors.black),
+                ));
         },
       ),
     );
   }
-  
 }
