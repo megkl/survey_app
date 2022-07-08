@@ -1,15 +1,10 @@
-// Copyright (c) 2022, Very Good Ventures
-// https://verygood.ventures
-//
-// Use of this source code is governed by an MIT-style
-// license that can be found in the LICENSE file or at
-// https://opensource.org/licenses/MIT.
-
 import 'dart:async';
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:survey_app/survey/cubit/survey/survey_cubit_cubit.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override
@@ -33,7 +28,8 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   await runZonedGuarded(
     () async {
       await BlocOverrides.runZoned(
-        () async => runApp(await builder()),
+        () async => runApp(BlocProvider<SurveyCubitCubit>(
+            create: (_) => SurveyCubitCubit(), child: await builder())),
         blocObserver: AppBlocObserver(),
       );
     },

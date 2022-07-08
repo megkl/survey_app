@@ -7,8 +7,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:survey_app/counter/counter.dart';
 import 'package:survey_app/l10n/l10n.dart';
+import 'package:survey_app/survey/view/survey_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -27,7 +27,7 @@ class App extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
+      home: const SurveyScreen(),
     );
   }
 }
