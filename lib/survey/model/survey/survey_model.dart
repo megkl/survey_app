@@ -14,7 +14,7 @@ String surveyModelToJson(SurveyModel data) => json.encode(data.toJson());
 
 @freezed
 abstract class SurveyModel with _$SurveyModel {
-  @HiveType(typeId: 1)
+  @HiveType(typeId: 1, adapterName: 'SurveyModelAdapter')
   const factory SurveyModel({
     @HiveField(0) String? id,
     @HiveField(1) String? startQuestionId,
@@ -28,7 +28,9 @@ abstract class SurveyModel with _$SurveyModel {
 
 @freezed
 abstract class Question with _$Question {
+  @HiveType(typeId: 3)
   const factory Question({
+    @HiveField(0)
     String? id,
     String? questionType,
     String? answerType,
@@ -43,8 +45,11 @@ abstract class Question with _$Question {
 
 @freezed
 abstract class Option with _$Option {
+  @HiveType(typeId: 5)
   const factory Option({
+    @HiveField(0)
     String? value,
+    @HiveField(1)
     String? displayText,
   }) = _Option;
 
@@ -53,7 +58,9 @@ abstract class Option with _$Option {
 
 @freezed
 abstract class Strings with _$Strings {
+  @HiveType(typeId: 4)
   const factory Strings({
+    @HiveField(0)
     En? en,
   }) = _Strings;
 
@@ -63,6 +70,7 @@ abstract class Strings with _$Strings {
 
 @freezed
 abstract class En with _$En {
+  @HiveType(typeId: 6)
   const factory En({
     String? qFarmerName,
     String? qFarmerGender,

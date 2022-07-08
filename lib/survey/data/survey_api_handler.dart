@@ -16,10 +16,9 @@ class SurveyApiHandler extends SurveyRepository{
       final response = await http.get(route);
       final jsonResponse = jsonDecode(response.body) as Map<String, dynamic>;
       final survey = SurveyModel.fromJson(jsonResponse);
-      if (jsonResponse['status'] != 200) {
-        throw 'An error occurred';
-      }
+
       return survey;
+      
     } on SocketException {
       throw 'You have no internet, kindly check your data connection, or wifi';
     } on FormatException {

@@ -153,7 +153,7 @@ class __$$_SurveyModelCopyWithImpl<$Res> extends _$SurveyModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-@HiveType(typeId: 1)
+@HiveType(typeId: 1, adapterName: 'SurveyModelAdapter')
 class _$_SurveyModel implements _SurveyModel {
   const _$_SurveyModel(
       {@HiveField(0) this.id,
@@ -257,6 +257,7 @@ Question _$QuestionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Question {
+  @HiveField(0)
   String? get id => throw _privateConstructorUsedError;
   String? get questionType => throw _privateConstructorUsedError;
   String? get answerType => throw _privateConstructorUsedError;
@@ -275,7 +276,7 @@ abstract class $QuestionCopyWith<$Res> {
   factory $QuestionCopyWith(Question value, $Res Function(Question) then) =
       _$QuestionCopyWithImpl<$Res>;
   $Res call(
-      {String? id,
+      {@HiveField(0) String? id,
       String? questionType,
       String? answerType,
       String? questionText,
@@ -336,7 +337,7 @@ abstract class _$$_QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
       __$$_QuestionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? id,
+      {@HiveField(0) String? id,
       String? questionType,
       String? answerType,
       String? questionText,
@@ -394,9 +395,10 @@ class __$$_QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 3)
 class _$_Question implements _Question {
   const _$_Question(
-      {this.id,
+      {@HiveField(0) this.id,
       this.questionType,
       this.answerType,
       this.questionText,
@@ -408,6 +410,7 @@ class _$_Question implements _Question {
       _$$_QuestionFromJson(json);
 
   @override
+  @HiveField(0)
   final String? id;
   @override
   final String? questionType;
@@ -472,7 +475,7 @@ class _$_Question implements _Question {
 
 abstract class _Question implements Question {
   const factory _Question(
-      {final String? id,
+      {@HiveField(0) final String? id,
       final String? questionType,
       final String? answerType,
       final String? questionText,
@@ -482,6 +485,7 @@ abstract class _Question implements Question {
   factory _Question.fromJson(Map<String, dynamic> json) = _$_Question.fromJson;
 
   @override
+  @HiveField(0)
   String? get id;
   @override
   String? get questionType;
@@ -505,7 +509,9 @@ Option _$OptionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Option {
+  @HiveField(0)
   String? get value => throw _privateConstructorUsedError;
+  @HiveField(1)
   String? get displayText => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -517,7 +523,7 @@ mixin _$Option {
 abstract class $OptionCopyWith<$Res> {
   factory $OptionCopyWith(Option value, $Res Function(Option) then) =
       _$OptionCopyWithImpl<$Res>;
-  $Res call({String? value, String? displayText});
+  $Res call({@HiveField(0) String? value, @HiveField(1) String? displayText});
 }
 
 /// @nodoc
@@ -551,7 +557,7 @@ abstract class _$$_OptionCopyWith<$Res> implements $OptionCopyWith<$Res> {
   factory _$$_OptionCopyWith(_$_Option value, $Res Function(_$_Option) then) =
       __$$_OptionCopyWithImpl<$Res>;
   @override
-  $Res call({String? value, String? displayText});
+  $Res call({@HiveField(0) String? value, @HiveField(1) String? displayText});
 }
 
 /// @nodoc
@@ -583,15 +589,18 @@ class __$$_OptionCopyWithImpl<$Res> extends _$OptionCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 5)
 class _$_Option implements _Option {
-  const _$_Option({this.value, this.displayText});
+  const _$_Option({@HiveField(0) this.value, @HiveField(1) this.displayText});
 
   factory _$_Option.fromJson(Map<String, dynamic> json) =>
       _$$_OptionFromJson(json);
 
   @override
+  @HiveField(0)
   final String? value;
   @override
+  @HiveField(1)
   final String? displayText;
 
   @override
@@ -628,14 +637,17 @@ class _$_Option implements _Option {
 }
 
 abstract class _Option implements Option {
-  const factory _Option({final String? value, final String? displayText}) =
-      _$_Option;
+  const factory _Option(
+      {@HiveField(0) final String? value,
+      @HiveField(1) final String? displayText}) = _$_Option;
 
   factory _Option.fromJson(Map<String, dynamic> json) = _$_Option.fromJson;
 
   @override
+  @HiveField(0)
   String? get value;
   @override
+  @HiveField(1)
   String? get displayText;
   @override
   @JsonKey(ignore: true)
@@ -649,6 +661,7 @@ Strings _$StringsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Strings {
+  @HiveField(0)
   En? get en => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -660,7 +673,7 @@ mixin _$Strings {
 abstract class $StringsCopyWith<$Res> {
   factory $StringsCopyWith(Strings value, $Res Function(Strings) then) =
       _$StringsCopyWithImpl<$Res>;
-  $Res call({En? en});
+  $Res call({@HiveField(0) En? en});
 
   $EnCopyWith<$Res>? get en;
 }
@@ -703,7 +716,7 @@ abstract class _$$_StringsCopyWith<$Res> implements $StringsCopyWith<$Res> {
           _$_Strings value, $Res Function(_$_Strings) then) =
       __$$_StringsCopyWithImpl<$Res>;
   @override
-  $Res call({En? en});
+  $Res call({@HiveField(0) En? en});
 
   @override
   $EnCopyWith<$Res>? get en;
@@ -733,13 +746,15 @@ class __$$_StringsCopyWithImpl<$Res> extends _$StringsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 4)
 class _$_Strings implements _Strings {
-  const _$_Strings({this.en});
+  const _$_Strings({@HiveField(0) this.en});
 
   factory _$_Strings.fromJson(Map<String, dynamic> json) =>
       _$$_StringsFromJson(json);
 
   @override
+  @HiveField(0)
   final En? en;
 
   @override
@@ -772,11 +787,12 @@ class _$_Strings implements _Strings {
 }
 
 abstract class _Strings implements Strings {
-  const factory _Strings({final En? en}) = _$_Strings;
+  const factory _Strings({@HiveField(0) final En? en}) = _$_Strings;
 
   factory _Strings.fromJson(Map<String, dynamic> json) = _$_Strings.fromJson;
 
   @override
+  @HiveField(0)
   En? get en;
   @override
   @JsonKey(ignore: true)
@@ -924,6 +940,7 @@ class __$$_EnCopyWithImpl<$Res> extends _$EnCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 6)
 class _$_En implements _En {
   const _$_En(
       {this.qFarmerName,

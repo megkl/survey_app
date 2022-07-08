@@ -22,7 +22,12 @@ Future<void> main() async {
   await Hive.initFlutter();
 
   Hive..registerAdapter(SurveyModelAdapter())
-  ..registerAdapter(SurveyResponseModelAdapter());
+  ..registerAdapter(SurveyResponseModelAdapter())
+  ..registerAdapter(QuestionAdapter())
+  ..registerAdapter(OptionAdapter())
+  ..registerAdapter(EnAdapter())
+  ..registerAdapter(StringsAdapter());
+
 
   await Hive.openBox(HiveBoxes.surveyBox);
   await Hive.openBox(HiveBoxes.responseBox);

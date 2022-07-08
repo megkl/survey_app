@@ -51,8 +51,10 @@ class _SurveyScreenState extends State<SurveyScreen> {
                           child: CircularProgressIndicator(),
                         );
                       } else if (state is FetchSurvey) {
-                        surveyBox.put(0, state.survey);
-                        return Container();
+                        surveyBox.put(HiveBoxes.surveyBox, state.survey);
+                        return Container(
+                          child:Text(state.survey!.id!, style: TextStyle(color: Colors.black),)
+                        );
                       } else if (state is SurveyErrorState) {
                         return SnackBar(
                             content: Text(state.errorMessage!),

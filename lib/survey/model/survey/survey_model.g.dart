@@ -49,6 +49,140 @@ class SurveyModelAdapter extends TypeAdapter<_$_SurveyModel> {
           typeId == other.typeId;
 }
 
+class QuestionAdapter extends TypeAdapter<_$_Question> {
+  @override
+  final int typeId = 3;
+
+  @override
+  _$_Question read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return _$_Question(
+      id: fields[0] as String?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, _$_Question obj) {
+    writer
+      ..writeByte(1)
+      ..writeByte(0)
+      ..write(obj.id);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is QuestionAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class OptionAdapter extends TypeAdapter<_$_Option> {
+  @override
+  final int typeId = 5;
+
+  @override
+  _$_Option read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return _$_Option(
+      value: fields[0] as String?,
+      displayText: fields[1] as String?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, _$_Option obj) {
+    writer
+      ..writeByte(2)
+      ..writeByte(0)
+      ..write(obj.value)
+      ..writeByte(1)
+      ..write(obj.displayText);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is OptionAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class StringsAdapter extends TypeAdapter<_$_Strings> {
+  @override
+  final int typeId = 4;
+
+  @override
+  _$_Strings read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return _$_Strings(
+      en: fields[0] as En?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, _$_Strings obj) {
+    writer
+      ..writeByte(1)
+      ..writeByte(0)
+      ..write(obj.en);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is StringsAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class EnAdapter extends TypeAdapter<_$_En> {
+  @override
+  final int typeId = 6;
+
+  @override
+  _$_En read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return _$_En();
+  }
+
+  @override
+  void write(BinaryWriter writer, _$_En obj) {
+    writer.writeByte(0);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EnAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
