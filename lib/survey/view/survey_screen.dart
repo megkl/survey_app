@@ -15,10 +15,13 @@ class SurveyScreen extends StatefulWidget {
 
 class _SurveyScreenState extends State<SurveyScreen> {
   late final Box surveyBox;
+  late SurveyCubitCubit surveyCubitCubit;
 
   @override
   void initState() {
     super.initState();
+    surveyCubitCubit = BlocProvider.of<SurveyCubitCubit>(context);
+    surveyCubitCubit.getSurvey();
     surveyBox = Hive.box(HiveBoxes.surveyBox);
   }
 
@@ -51,11 +54,10 @@ class _SurveyScreenState extends State<SurveyScreen> {
                         surveyBox.put(0, state.survey);
                         return Container();
                       } else if (state is SurveyErrorState) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                        return SnackBar(
                             content: Text(state.errorMessage!),
-                          ),
-                        );
+                          );
+                        
                       }
                       return Container();
                     },

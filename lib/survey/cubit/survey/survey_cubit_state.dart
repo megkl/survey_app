@@ -10,7 +10,7 @@ class SurveyLoading extends SurveyCubitState {}
 class FetchSurvey extends SurveyCubitState {
   SurveyModel? survey;
 
-  FetchSurvey({this.survey});
+  FetchSurvey(this.survey);
 }
 
 class SurveyAddResponse extends SurveyCubitState {
@@ -22,7 +22,7 @@ class SurveyAddResponse extends SurveyCubitState {
 class SurveyErrorState extends SurveyCubitState {
     String? errorMessage;
 
-    SurveyErrorState({this.errorMessage});
+    SurveyErrorState(this.errorMessage);
 }
 
 

@@ -1,22 +1,22 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:http/http.dart' as http;
-import 'package:survey_app/survey/data/survey_api_handler.dart';
+import 'package:survey_app/survey/cubit/survey/survey_cubit_cubit.dart';
 import 'package:survey_app/survey/data/survey_repo_impl.dart';
 import 'package:survey_app/survey/data/survey_repository.dart';
 
-final sl = GetIt.instance;
+import 'survey/data/survey_api_handler.dart';
 
-//Service locator description
-void init() {
-  sl..registerLazySingleton<SurveyApiHandler>(
-    () => SurveyApiHandler()
-  )
+final injector = GetIt.instance;
 
-  //Singleton for HTTP request
-  ..registerLazySingleton(() => http.Client())
+Future<void> initializeDependencies() async {
+  // Dio client
+  injector..registerSingleton<Dio>(Dio())
 
-  ..registerLazySingleton<SurveyRepository>(
-    () => surveyRepoImpl(surveyApiHandler: sl()),
-  );
+  // Dependencies
+  ..registerSingleton<SurveyApiHandler>(SurveyApiHandler())
+  ..registerSingleton<SurveyRepository>(SurveyRepoImpl(injector()));
 
+  //cubit
+  injector.registerFactory<SurveyCubitCubit>(
+      () => SurveyCubitCubit(injector()),);
 }

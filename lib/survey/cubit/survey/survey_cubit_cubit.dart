@@ -9,15 +9,15 @@ part 'survey_cubit_state.dart';
 
 class SurveyCubitCubit extends Cubit<SurveyCubitState> {
   final SurveyRepository? surveyRepository;
-  SurveyCubitCubit({this.surveyRepository}) : super(SurveyCubitInitial());
+  SurveyCubitCubit(this.surveyRepository) : super(SurveyCubitInitial());
   
-  Future<void> getSurvey(String cityName) async {
+  Future<void> getSurvey() async {
     try {
       emit(SurveyLoading());
       final survey = await surveyRepository!.fetchSurvey();
-      emit(FetchSurvey(survey: survey));
+      emit(FetchSurvey(survey));
     } catch (error) {
-        emit(SurveyErrorState(errorMessage: error.toString()));
+        emit(SurveyErrorState(error.toString()));
     }
   }
 
@@ -25,9 +25,9 @@ class SurveyCubitCubit extends Cubit<SurveyCubitState> {
     try {
       emit(SurveyLoading());
       final survey = await surveyRepository!.fetchSurvey();
-      emit(FetchSurvey(survey: survey));
+      emit(FetchSurvey(survey));
     } catch (error) {
-        emit(SurveyErrorState(errorMessage: error.toString()));
+        emit(SurveyErrorState(error.toString()));
     }
   }
 }

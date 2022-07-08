@@ -3,10 +3,10 @@ import 'package:survey_app/survey/data/survey_repository.dart';
 import 'package:survey_app/survey/model/survey_response/survey_response_model.dart';
 import 'package:survey_app/survey/model/survey/survey_model.dart';
 
-class surveyRepoImpl extends SurveyRepository{
+class SurveyRepoImpl extends SurveyRepository{
   final SurveyApiHandler? surveyApiHandler;
 
-  surveyRepoImpl({this.surveyApiHandler});
+  SurveyRepoImpl(this.surveyApiHandler);
 
   @override
   Future<void> addSurveyResponse(SurveyResponseModel? surveyResponseModel) {
@@ -17,6 +17,5 @@ class surveyRepoImpl extends SurveyRepository{
   Future<SurveyModel> fetchSurvey() {
     return surveyApiHandler!.fetchSurvey();
   }
-
   
 }
