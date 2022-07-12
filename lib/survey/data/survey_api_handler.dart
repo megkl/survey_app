@@ -14,8 +14,8 @@ class SurveyApiHandler extends SurveyRepository{
       final route = HttpClient().createUri(ServerAddresses.getSurvey);
 
       final response = await http.get(route);
-      final jsonResponse = jsonDecode(response.body) as Map<String, dynamic>;
-      final survey = SurveyModel.fromJson(jsonResponse);
+      final jsonResponse = jsonDecode(response.body);
+      final survey = SurveyModel.fromJson(jsonResponse as Map<String, dynamic>);
 
       return survey;
       
@@ -29,13 +29,13 @@ class SurveyApiHandler extends SurveyRepository{
   }
 
   @override
-  Future<void> addSurveyResponse(SurveyResponseModel? surveyResponseModel) async {
+  Future<void> addSurveyResponse(List<dynamic> surveyResponseModel) async {
     try {
       final route = HttpClient().createUri(ServerAddresses.addReponse);
       var data = <String, dynamic>{
         "responses": surveyResponseModel
       };
-      final response = await http.patch(route, body: data);
+      final response = await http.post(route, body: data);
       Map jsonResponse = json.decode(response.body) as Map;
       if (jsonResponse['status'] != 200) {
         if (jsonResponse['status'] != 401) {

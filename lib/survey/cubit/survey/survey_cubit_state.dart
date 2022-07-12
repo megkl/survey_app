@@ -14,7 +14,7 @@ class FetchSurvey extends SurveyCubitState {
 }
 
 class SurveyAddResponse extends SurveyCubitState {
-  List<SurveyResponseModel>? surveyReponses;
+  List<dynamic>? surveyReponses;
 
   SurveyAddResponse({this.surveyReponses});
 }

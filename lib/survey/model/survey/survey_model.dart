@@ -8,9 +8,9 @@ import 'package:hive/hive.dart';
 part 'survey_model.freezed.dart';
 part 'survey_model.g.dart';
 
-//SurveyModel surveyModelFromJson(String str) => SurveyModel.fromJson(json.decode(str));
+//SurveyModel surveyModelFromJson(String str) => SurveyModel.fromJson(json.decode(str)  as Map<String, Object?>);
 
-String surveyModelToJson(SurveyModel data) => json.encode(data.toJson());
+//String surveyModelToJson(SurveyModel data) => json.encode(data.toJson());
 
 @freezed
 abstract class SurveyModel with _$SurveyModel {
@@ -32,10 +32,15 @@ abstract class Question with _$Question {
   const factory Question({
     @HiveField(0)
     String? id,
+    @HiveField(1)
     String? questionType,
+    @HiveField(2)
     String? answerType,
+    @HiveField(3)
     String? questionText,
+    @HiveField(4)
     List<Option>? options,
+    @HiveField(5)
     String? next,
   }) = _Question;
 
@@ -72,11 +77,17 @@ abstract class Strings with _$Strings {
 abstract class En with _$En {
   @HiveType(typeId: 6)
   const factory En({
+    @HiveField(0)
     String? qFarmerName,
+    @HiveField(1)
     String? qFarmerGender,
+    @HiveField(2)
     String? optMale,
+    @HiveField(3)
     String? optFemale,
+    @HiveField(4)
     String? optOther,
+    @HiveField(5)
     String? qSizeOfFarm,
   }) = _En;
 

@@ -17,7 +17,7 @@ class SurveyResponseModelAdapter extends TypeAdapter<SurveyResponseModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return SurveyResponseModel(
-      responses: (fields[0] as List?)?.cast<String>(),
+      responses: (fields[0] as List?)?.cast<dynamic>(),
     );
   }
 

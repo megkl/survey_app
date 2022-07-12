@@ -21,11 +21,11 @@ class SurveyCubitCubit extends Cubit<SurveyCubitState> {
     }
   }
 
-  Future<void> addSurveyResponse(String cityName) async {
+  Future<void> addSurveyResponse(List<dynamic> surveyResponse) async {
     try {
       emit(SurveyLoading());
-      final survey = await surveyRepository!.fetchSurvey();
-      emit(FetchSurvey(survey));
+      final survey = await surveyRepository!.addSurveyResponse(surveyResponse);
+      emit((SurveyAddResponse(surveyReponses: surveyResponse)));
     } catch (error) {
         emit(SurveyErrorState(error.toString()));
     }

@@ -4,7 +4,7 @@ import '../model/survey/survey_model.dart';
 
 abstract class SurveyRepository {
  
-  Future<void> addSurveyResponse(SurveyResponseModel? surveyResponseModel);
+  Future<void> addSurveyResponse(List<dynamic> surveyResponseModel);
 
   Future<SurveyModel> fetchSurvey();
 

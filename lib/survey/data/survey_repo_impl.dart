@@ -9,7 +9,7 @@ class SurveyRepoImpl extends SurveyRepository{
   SurveyRepoImpl(this.surveyApiHandler);
 
   @override
-  Future<void> addSurveyResponse(SurveyResponseModel? surveyResponseModel) {
+  Future<void> addSurveyResponse(List<dynamic> surveyResponseModel) {
     return surveyApiHandler!.addSurveyResponse(surveyResponseModel);
   }
 

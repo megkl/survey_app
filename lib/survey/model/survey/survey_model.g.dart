@@ -61,15 +61,30 @@ class QuestionAdapter extends TypeAdapter<_$_Question> {
     };
     return _$_Question(
       id: fields[0] as String?,
+      questionType: fields[1] as String?,
+      answerType: fields[2] as String?,
+      questionText: fields[3] as String?,
+      options: (fields[4] as List?)?.cast<Option>(),
+      next: fields[5] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, _$_Question obj) {
     writer
-      ..writeByte(1)
+      ..writeByte(6)
       ..writeByte(0)
-      ..write(obj.id);
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.questionType)
+      ..writeByte(2)
+      ..write(obj.answerType)
+      ..writeByte(3)
+      ..write(obj.questionText)
+      ..writeByte(5)
+      ..write(obj.next)
+      ..writeByte(4)
+      ..write(obj.options);
   }
 
   @override
@@ -164,12 +179,32 @@ class EnAdapter extends TypeAdapter<_$_En> {
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return _$_En();
+    return _$_En(
+      qFarmerName: fields[0] as String?,
+      qFarmerGender: fields[1] as String?,
+      optMale: fields[2] as String?,
+      optFemale: fields[3] as String?,
+      optOther: fields[4] as String?,
+      qSizeOfFarm: fields[5] as String?,
+    );
   }
 
   @override
   void write(BinaryWriter writer, _$_En obj) {
-    writer.writeByte(0);
+    writer
+      ..writeByte(6)
+      ..writeByte(0)
+      ..write(obj.qFarmerName)
+      ..writeByte(1)
+      ..write(obj.qFarmerGender)
+      ..writeByte(2)
+      ..write(obj.optMale)
+      ..writeByte(3)
+      ..write(obj.optFemale)
+      ..writeByte(4)
+      ..write(obj.optOther)
+      ..writeByte(5)
+      ..write(obj.qSizeOfFarm);
   }
 
   @override
@@ -190,7 +225,7 @@ class EnAdapter extends TypeAdapter<_$_En> {
 _$_SurveyModel _$$_SurveyModelFromJson(Map<String, dynamic> json) =>
     _$_SurveyModel(
       id: json['id'] as String?,
-      startQuestionId: json['startQuestionId'] as String?,
+      startQuestionId: json['start_question_id'] as String?,
       questions: (json['questions'] as List<dynamic>?)
           ?.map((e) => Question.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -209,9 +244,9 @@ Map<String, dynamic> _$$_SurveyModelToJson(_$_SurveyModel instance) =>
 
 _$_Question _$$_QuestionFromJson(Map<String, dynamic> json) => _$_Question(
       id: json['id'] as String?,
-      questionType: json['questionType'] as String?,
-      answerType: json['answerType'] as String?,
-      questionText: json['questionText'] as String?,
+      questionType: json['question_type'] as String?,
+      answerType: json['answer_type'] as String?,
+      questionText: json['question_text'] as String?,
       options: (json['options'] as List<dynamic>?)
           ?.map((e) => Option.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -230,12 +265,12 @@ Map<String, dynamic> _$$_QuestionToJson(_$_Question instance) =>
 
 _$_Option _$$_OptionFromJson(Map<String, dynamic> json) => _$_Option(
       value: json['value'] as String?,
-      displayText: json['displayText'] as String?,
+      displayText: json['display_text'] as String?,
     );
 
 Map<String, dynamic> _$$_OptionToJson(_$_Option instance) => <String, dynamic>{
       'value': instance.value,
-      'displayText': instance.displayText,
+      'display_text': instance.displayText,
     };
 
 _$_Strings _$$_StringsFromJson(Map<String, dynamic> json) => _$_Strings(
@@ -250,12 +285,12 @@ Map<String, dynamic> _$$_StringsToJson(_$_Strings instance) =>
     };
 
 _$_En _$$_EnFromJson(Map<String, dynamic> json) => _$_En(
-      qFarmerName: json['qFarmerName'] as String?,
-      qFarmerGender: json['qFarmerGender'] as String?,
-      optMale: json['optMale'] as String?,
-      optFemale: json['optFemale'] as String?,
-      optOther: json['optOther'] as String?,
-      qSizeOfFarm: json['qSizeOfFarm'] as String?,
+      qFarmerName: json['q_farmer_name'] as String?,
+      qFarmerGender: json['q_farmer_gender'] as String?,
+      optMale: json['opt_male'] as String?,
+      optFemale: json['opt_female'] as String?,
+      optOther: json['opt_other'] as String?,
+      qSizeOfFarm: json['q_size_of_farm'] as String?,
     );
 
 Map<String, dynamic> _$$_EnToJson(_$_En instance) => <String, dynamic>{

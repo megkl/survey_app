@@ -1,3 +1,4 @@
+import 'package:cron/cron.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -31,7 +32,10 @@ Future<void> main() async {
 
   await Hive.openBox(HiveBoxes.surveyBox);
   await Hive.openBox(HiveBoxes.responseBox);
-  
+  await Hive.openBox(HiveBoxes.quizBox);
+  await Hive.openBox(HiveBoxes.optionsBox);
+  await Hive.openBox(HiveBoxes.questionsListBox);
+
    runApp(BlocProvider<SurveyCubitCubit>(
              create: (_) => injector(),
             child: App()));

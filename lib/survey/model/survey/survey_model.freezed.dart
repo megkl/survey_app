@@ -259,10 +259,15 @@ Question _$QuestionFromJson(Map<String, dynamic> json) {
 mixin _$Question {
   @HiveField(0)
   String? get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String? get questionType => throw _privateConstructorUsedError;
+  @HiveField(2)
   String? get answerType => throw _privateConstructorUsedError;
+  @HiveField(3)
   String? get questionText => throw _privateConstructorUsedError;
+  @HiveField(4)
   List<Option>? get options => throw _privateConstructorUsedError;
+  @HiveField(5)
   String? get next => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -277,11 +282,11 @@ abstract class $QuestionCopyWith<$Res> {
       _$QuestionCopyWithImpl<$Res>;
   $Res call(
       {@HiveField(0) String? id,
-      String? questionType,
-      String? answerType,
-      String? questionText,
-      List<Option>? options,
-      String? next});
+      @HiveField(1) String? questionType,
+      @HiveField(2) String? answerType,
+      @HiveField(3) String? questionText,
+      @HiveField(4) List<Option>? options,
+      @HiveField(5) String? next});
 }
 
 /// @nodoc
@@ -338,11 +343,11 @@ abstract class _$$_QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
   @override
   $Res call(
       {@HiveField(0) String? id,
-      String? questionType,
-      String? answerType,
-      String? questionText,
-      List<Option>? options,
-      String? next});
+      @HiveField(1) String? questionType,
+      @HiveField(2) String? answerType,
+      @HiveField(3) String? questionText,
+      @HiveField(4) List<Option>? options,
+      @HiveField(5) String? next});
 }
 
 /// @nodoc
@@ -399,11 +404,11 @@ class __$$_QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
 class _$_Question implements _Question {
   const _$_Question(
       {@HiveField(0) this.id,
-      this.questionType,
-      this.answerType,
-      this.questionText,
-      final List<Option>? options,
-      this.next})
+      @HiveField(1) this.questionType,
+      @HiveField(2) this.answerType,
+      @HiveField(3) this.questionText,
+      @HiveField(4) final List<Option>? options,
+      @HiveField(5) this.next})
       : _options = options;
 
   factory _$_Question.fromJson(Map<String, dynamic> json) =>
@@ -413,13 +418,17 @@ class _$_Question implements _Question {
   @HiveField(0)
   final String? id;
   @override
+  @HiveField(1)
   final String? questionType;
   @override
+  @HiveField(2)
   final String? answerType;
   @override
+  @HiveField(3)
   final String? questionText;
   final List<Option>? _options;
   @override
+  @HiveField(4)
   List<Option>? get options {
     final value = _options;
     if (value == null) return null;
@@ -428,6 +437,7 @@ class _$_Question implements _Question {
   }
 
   @override
+  @HiveField(5)
   final String? next;
 
   @override
@@ -476,11 +486,11 @@ class _$_Question implements _Question {
 abstract class _Question implements Question {
   const factory _Question(
       {@HiveField(0) final String? id,
-      final String? questionType,
-      final String? answerType,
-      final String? questionText,
-      final List<Option>? options,
-      final String? next}) = _$_Question;
+      @HiveField(1) final String? questionType,
+      @HiveField(2) final String? answerType,
+      @HiveField(3) final String? questionText,
+      @HiveField(4) final List<Option>? options,
+      @HiveField(5) final String? next}) = _$_Question;
 
   factory _Question.fromJson(Map<String, dynamic> json) = _$_Question.fromJson;
 
@@ -488,14 +498,19 @@ abstract class _Question implements Question {
   @HiveField(0)
   String? get id;
   @override
+  @HiveField(1)
   String? get questionType;
   @override
+  @HiveField(2)
   String? get answerType;
   @override
+  @HiveField(3)
   String? get questionText;
   @override
+  @HiveField(4)
   List<Option>? get options;
   @override
+  @HiveField(5)
   String? get next;
   @override
   @JsonKey(ignore: true)
@@ -806,11 +821,17 @@ En _$EnFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$En {
+  @HiveField(0)
   String? get qFarmerName => throw _privateConstructorUsedError;
+  @HiveField(1)
   String? get qFarmerGender => throw _privateConstructorUsedError;
+  @HiveField(2)
   String? get optMale => throw _privateConstructorUsedError;
+  @HiveField(3)
   String? get optFemale => throw _privateConstructorUsedError;
+  @HiveField(4)
   String? get optOther => throw _privateConstructorUsedError;
+  @HiveField(5)
   String? get qSizeOfFarm => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -823,12 +844,12 @@ abstract class $EnCopyWith<$Res> {
   factory $EnCopyWith(En value, $Res Function(En) then) =
       _$EnCopyWithImpl<$Res>;
   $Res call(
-      {String? qFarmerName,
-      String? qFarmerGender,
-      String? optMale,
-      String? optFemale,
-      String? optOther,
-      String? qSizeOfFarm});
+      {@HiveField(0) String? qFarmerName,
+      @HiveField(1) String? qFarmerGender,
+      @HiveField(2) String? optMale,
+      @HiveField(3) String? optFemale,
+      @HiveField(4) String? optOther,
+      @HiveField(5) String? qSizeOfFarm});
 }
 
 /// @nodoc
@@ -883,12 +904,12 @@ abstract class _$$_EnCopyWith<$Res> implements $EnCopyWith<$Res> {
       __$$_EnCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? qFarmerName,
-      String? qFarmerGender,
-      String? optMale,
-      String? optFemale,
-      String? optOther,
-      String? qSizeOfFarm});
+      {@HiveField(0) String? qFarmerName,
+      @HiveField(1) String? qFarmerGender,
+      @HiveField(2) String? optMale,
+      @HiveField(3) String? optFemale,
+      @HiveField(4) String? optOther,
+      @HiveField(5) String? qSizeOfFarm});
 }
 
 /// @nodoc
@@ -943,26 +964,32 @@ class __$$_EnCopyWithImpl<$Res> extends _$EnCopyWithImpl<$Res>
 @HiveType(typeId: 6)
 class _$_En implements _En {
   const _$_En(
-      {this.qFarmerName,
-      this.qFarmerGender,
-      this.optMale,
-      this.optFemale,
-      this.optOther,
-      this.qSizeOfFarm});
+      {@HiveField(0) this.qFarmerName,
+      @HiveField(1) this.qFarmerGender,
+      @HiveField(2) this.optMale,
+      @HiveField(3) this.optFemale,
+      @HiveField(4) this.optOther,
+      @HiveField(5) this.qSizeOfFarm});
 
   factory _$_En.fromJson(Map<String, dynamic> json) => _$$_EnFromJson(json);
 
   @override
+  @HiveField(0)
   final String? qFarmerName;
   @override
+  @HiveField(1)
   final String? qFarmerGender;
   @override
+  @HiveField(2)
   final String? optMale;
   @override
+  @HiveField(3)
   final String? optFemale;
   @override
+  @HiveField(4)
   final String? optOther;
   @override
+  @HiveField(5)
   final String? qSizeOfFarm;
 
   @override
@@ -1010,26 +1037,32 @@ class _$_En implements _En {
 
 abstract class _En implements En {
   const factory _En(
-      {final String? qFarmerName,
-      final String? qFarmerGender,
-      final String? optMale,
-      final String? optFemale,
-      final String? optOther,
-      final String? qSizeOfFarm}) = _$_En;
+      {@HiveField(0) final String? qFarmerName,
+      @HiveField(1) final String? qFarmerGender,
+      @HiveField(2) final String? optMale,
+      @HiveField(3) final String? optFemale,
+      @HiveField(4) final String? optOther,
+      @HiveField(5) final String? qSizeOfFarm}) = _$_En;
 
   factory _En.fromJson(Map<String, dynamic> json) = _$_En.fromJson;
 
   @override
+  @HiveField(0)
   String? get qFarmerName;
   @override
+  @HiveField(1)
   String? get qFarmerGender;
   @override
+  @HiveField(2)
   String? get optMale;
   @override
+  @HiveField(3)
   String? get optFemale;
   @override
+  @HiveField(4)
   String? get optOther;
   @override
+  @HiveField(5)
   String? get qSizeOfFarm;
   @override
   @JsonKey(ignore: true)

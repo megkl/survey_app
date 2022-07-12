@@ -8,6 +8,8 @@ class SurveyResponseModel{
   SurveyResponseModel({this.responses});
 
   @HiveField(0)
-  List<String>? responses;
+  List<dynamic>? responses;
 
 }
+
+
